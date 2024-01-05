@@ -6,7 +6,11 @@ export default {
     "./node_modules/tw-elements/dist/js/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      aspectRatio: {
+        '4/3': '4 / 3',
+      },
+    },
     screens: {
       'tablet': '640px',
       // => @media (min-width: 640px) { ... }
