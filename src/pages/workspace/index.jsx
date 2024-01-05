@@ -5,7 +5,7 @@ import FooterComponent from './FooterComponent';
 const Workspace = () => {
     return (
         <>
-            <div className='h-[93vh] w-[59vw] lg:w-[68vw] overflow-hidden'>
+            <div className='h-[93vh] w-[70vw] max-[1024px]:w-[59vw] overflow-hidden'>
                 { <ContextComponent /> }
                 { <CanvasComponent /> }
                 { <FooterComponent /> }

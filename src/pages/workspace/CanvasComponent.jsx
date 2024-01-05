@@ -3,7 +3,7 @@ const CanvasComponent = () => {
     return (
         <div className="flex px-5 min-[1280px]:px-16 bg-slate-100 items-center h-[85%] items-center">
             <div className="w-[100%]">
-                <div className="mainCanvas bg-white h-[65vh] border p-5">
+                <div className="mainCanvas bg-white h-[65vh] max-[1024px]:h-[40vh] border p-5">
                     <div className="border-dashed border w-[100%] h-[100%]">
 
                     </div>
