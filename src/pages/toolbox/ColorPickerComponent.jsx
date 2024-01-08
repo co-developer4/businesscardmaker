@@ -3,7 +3,6 @@ import { SketchPicker } from "react-color";
 
 const ColorPickerComponent = (props) => {
     const closeComponent = () => {
-        console.log("yes");
         props.setVisible();
     }
     return (

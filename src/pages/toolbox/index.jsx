@@ -3,7 +3,7 @@ import OptionComponent from './OptionComponent';
 import { useEffect, useState } from 'react';
 
 const Toolbox = () => {
-    const [text, setText] = useState('text');
+    const [text, setText] = useState('background');
 
     return (
         <div className='w-[30vw] flex overflow-hidden max-[1024px]:w-[41vw]'>
