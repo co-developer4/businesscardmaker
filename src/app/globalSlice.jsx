@@ -9,7 +9,8 @@ export const globalSlice = createSlice({
     },
     reducers: {
         init : (state, action) => {
-            state = action.payload;
+            if(action.payload?.backgroundColor)state.backgroundColor = action.payload.backgroundColor;
+            if(action.payload?.recommendColors)state.recommendColors = action.payload.recommendColors;
         },
         updateBackgroundColor: (state, action) => {
             state.backgroundColor = action.payload

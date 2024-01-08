@@ -33,6 +33,7 @@ const ColorComponent = () => {
         dispatch(addRecommendColor(newColor));
         axios.patch("https://business-card-maker-6c95b-default-rtdb.firebaseio.com/global.json/", {"recommendColors":[...global.recommendColors, newColor]})
             .then((response) => {
+                console.log(response.data);
                 // dispatch(addRecommendColor(newColor));
             })
             .catch((error) => {
@@ -43,14 +44,14 @@ const ColorComponent = () => {
         <div className="relative overflow-y-auto h-[90%]">
             <h1 className="text-xs mb-3">New Color</h1>
             <div className="relative">
-                <button className="bg-white w-12 h-12 rounded overflow-hidden flex items-center justify-center border mb-3 aspect-square" onClick={showColorPicker} style={{backgroundColor:global.backgroundColor}}>+</button>
+                <button className="bg-white w-12 h-12 rounded overflow-hidden flex items-center justify-center border mb-3 aspect-square text-bold" onClick={showColorPicker} style={{backgroundColor:global.backgroundColor}}>+</button>
                 <ColorPickerComponent visible={visible} setVisible={showColorPicker} setColor={changeColor} color={global.backgroundColor} addRecommendColor={addRecommendColor2Global} />
             </div>
             <h1 className="text-xs mb-3 clear-start">Recommend Colors</h1>
             <div>
                 { 
                     global.recommendColors.length != 0 && global.recommendColors.map((ele, index) => {
-                        return <button key={ele+" " + index} className="w-12 h-12 rounded overflow-hidden flex items-center justify-center border mb-3 aspect-square float-left mr-2" style={{backgroundColor:ele}}></button>
+                        return <button key={ele+" " + index} className="w-12 h-12 rounded overflow-hidden flex items-center justify-center border mb-3 aspect-square float-left mr-2" style={{backgroundColor:ele}} onClick={()=>changeColor(ele)}></button>
                     }) 
                 }
             </div>
@@ -58,7 +59,7 @@ const ColorComponent = () => {
             <div>
                 { 
                     defaultColors.length != 0 && defaultColors.map((ele, index) => {
-                        return <button key={ele + " " + index} className="w-12 h-12 rounded overflow-hidden flex items-center justify-center border mb-3 aspect-square float-left mr-2" style={{backgroundColor:ele}}></button>
+                        return <button key={ele + " " + index} className="w-12 h-12 rounded overflow-hidden flex items-center justify-center border mb-3 aspect-square float-left mr-2" style={{backgroundColor:ele}} onClick={()=>changeColor(ele)}></button>
                     }) 
                 }
             </div>
