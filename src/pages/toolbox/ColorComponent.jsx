@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { SketchPicker } from "react-color";
 import ColorPickerComponent from "./ColorPickerComponent";
 import { useSelector, useDispatch } from "react-redux";
-import { updateBackgroundColor, addRecommendColor } from "../../app/globalSlice";
+import { updateBackgroundColor, addRecommendColor, addTextComponent } from "../../app/globalSlice";
 import axios from "axios";
 
 const ColorComponent = () => {
@@ -33,7 +33,6 @@ const ColorComponent = () => {
         dispatch(addRecommendColor(newColor));
         axios.patch("https://business-card-maker-6c95b-default-rtdb.firebaseio.com/global.json/", {"recommendColors":[...global.recommendColors, newColor]})
             .then((response) => {
-                console.log(response.data);
                 // dispatch(addRecommendColor(newColor));
             })
             .catch((error) => {
